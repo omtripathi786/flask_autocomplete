@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Autocomplete</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+<h1 class="text-center text-light bg-dark">Flask Auto Search</h1>
+<div class="container">
+    <div class="row">
+        <div class="navbar navbar-light bg-light">
+            <form class="form-inline">
+                <input id="search_input" class="form-control mr-sm-2" type="search" placeholder="Search Country" aria-label="Search">
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+        $(function() {
+           $("#search_input").autocomplete({
+                source: function( request, response ) {
+                    $.ajax({
+                        url: '{{ url_for("autocomplete") }}',
+                        dataType: "json",
+                        data: {
+                            term: request.term
+                        },
+                        success: function( data ) {
+                           response( data );
+                           console.log(request.term);
+                         }
+                    });
+                },
+                minLength: 2,
+           });
+        });
+
+</script>
+</body>
+</html>
