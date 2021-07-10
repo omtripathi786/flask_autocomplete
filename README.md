@@ -1,5 +1,7 @@
 # flask_autocomplete
-Use case (POC) with flask and jquery for text auto complete for country only
+Use case (POC) with flask and jquery for text auto complete for country only.
+This app will return the Country based on input in the search box.
+if country not found it will 5 default list of country
 
 ## Steps to create a working environment
 1. Install [Miniconda](https://conda.io/miniconda.html)
