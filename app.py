@@ -7,6 +7,10 @@ app = Flask(__name__)
 
 @app.route('/auto', methods=['GET', 'POST'])
 def autocomplete():
+    """
+    This api will return the Country based on input in the search box.
+    if country not found it will 5 default list of country
+    """
     countries = dict(countries_for_language('en'))
     country = ['Unites States Of America', 'India', 'Australia', 'China', 'Japan']
     key = request.args.get('term')

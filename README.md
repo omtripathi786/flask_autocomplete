@@ -1,5 +1,5 @@
 # flask_autocomplete
-Use case (POC) with flask and jquery for text auto complete
+Use case (POC) with flask and jquery for text auto complete for country only
 
 ## Steps to create a working environment
 1. Install [Miniconda](https://conda.io/miniconda.html)
